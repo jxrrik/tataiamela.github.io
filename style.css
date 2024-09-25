@@ -1,0 +1,231 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #4d4d4d 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+    padding-top: 50px;
+    z-index: 1;
+    position: relative;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1;
+    position: relative;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+#dancer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 450px;
+    display: none;
+    animation: dance 2s infinite;
+    z-index: 1;
+}
+
+/* Estilos para a dançarina */
+#dancer .body {
+    position: absolute;
+    width: 60px;
+    height: 150px;
+    background: #f0d9b5;
+    left: 70px;
+    top: 100px;
+    border-radius: 20%;
+    z-index: 2;
+}
+
+#dancer .head {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #f0d9b5;
+    left: 70px;
+    top: 40px;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+#dancer .hair {
+    position: absolute;
+    width: 70px;
+    height: 100px;
+    background: #000;
+    left: 65px;
+    top: 10px;
+    border-radius: 50% 50% 0 0;
+    z-index: 4;
+}
+
+#dancer .hair::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 150px;
+    background: #000;
+    left: 0;
+    top: 80px;
+    border-radius: 0 0 50% 50%;
+}
+
+#dancer .left-arm {
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    background: #f0d9b5;
+    left: 40px;
+    top: 110px;
+    transform: rotate(30deg);
+    transform-origin: top left;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+#dancer .right-arm {
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    background: #f0d9b5;
+    left: 140px;
+    top: 110px;
+    transform: rotate(-30deg);
+    transform-origin: top right;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+#dancer .left-leg {
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    background: #000;
+    left: 70px;
+    top: 250px;
+    transform: rotate(-10deg);
+    transform-origin: top left;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+#dancer .right-leg {
+    position: absolute;
+    width: 20px;
+    height: 100px;
+    background: #000;
+    left: 110px;
+    top: 250px;
+    transform: rotate(10deg);
+    transform-origin: top right;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Vestido Gótico */
+#dancer .dress {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: #000;
+    left: 50px;
+    top: 130px;
+    border-radius: 50% 50% 0 0;
+    z-index: 3;
+    border: 2px solid #444;
+    box-shadow: 0 0 10px #222;
+    /* Detalhes em renda */
+    background-image: radial-gradient(#444 10%, transparent 11%), radial-gradient(#444 10%, transparent 11%);
+    background-position: 0 0, 5px 5px;
+    background-size: 10px 10px;
+}
+
+/* Botas */
+#dancer .boots {
+    position: absolute;
+    width: 80px;
+    height: 50px;
+    background: #000;
+    left: 60px;
+    top: 340px;
+    border-radius: 20% 20% 0 0;
+    z-index: 2;
+    border-top: 2px solid #444;
+    box-shadow: 0 0 5px #222;
+}
+
+/* Gargantilha */
+#dancer .choker {
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    background: #000;
+    left: 75px;
+    top: 105px; /* Ajuste a posição para baixo */
+    border-radius: 5px;
+    z-index: 4;
+}
+
+/* Chapéu */
+#dancer .hat {
+    position: absolute;
+    width: 80px;
+    height: 20px;
+    background: #000;
+    left: 60px;
+    top: 20px;
+    border-radius: 50%;
+    box-shadow: 0 10px 0 #000;
+    z-index: 5;
+}
+
+/* Fundo atualizado para o tema gótico */
+body {
+    background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+}
+
+@keyframes dance {
+    0% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-50%) rotate(10deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    75% {
+        transform: translateX(-50%) rotate(-10deg);
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}

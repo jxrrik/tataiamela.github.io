@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+    padding-top: 50px;
+    z-index: 1;
+    position: relative;
+}
+
+h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #fff;
+    color: #ff6f61;
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    z-index: 1;
+    position: relative;
+}
+
+button:hover {
+    background-color: #ffe0e0;
+}
+
+#dancer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 400px;
+    display: none;
+    animation: dance 2s infinite;
+    z-index: 1;
+}
+
+// Estilos para a dançarina
+#dancer {
+    // Mixin para partes do corpo
+    @mixin body-part($name, $width, $height, $color, $left, $top, $radius: 50%) {
+        &.#{$name} {
+            position: absolute;
+            width: $width;
+            height: $height;
+            background: $color;
+            left: $left;
+            top: $top;
+            border-radius: $radius;
+        }
+    }
+
+    // Corpo
+    @include body-part('body', 60px, 150px, #ffe0bd, 70px, 100px, 20%);
+
+    // Cabeça
+    @include body-part('head', 60px, 60px, #ffe0bd, 70px, 40px);
+
+    // Cabelo
+    .hair {
+        position: absolute;
+        width: 70px;
+        height: 100px;
+        background: #000;
+        left: 65px;
+        top: 10px;
+        border-radius: 50% 50% 0 0;
+        z-index: -1;
+    }
+
+    // Braço esquerdo
+    @include body-part('left-arm', 20px, 100px, #ffe0bd, 40px, 110px);
+    .left-arm {
+        transform: rotate(30deg);
+        transform-origin: top left;
+    }
+
+    // Braço direito
+    @include body-part('right-arm', 20px, 100px, #ffe0bd, 140px, 110px);
+    .right-arm {
+        transform: rotate(-30deg);
+        transform-origin: top right;
+    }
+
+    // Perna esquerda
+    @include body-part('left-leg', 20px, 100px, #ffe0bd, 70px, 250px);
+    .left-leg {
+        transform: rotate(-10deg);
+        transform-origin: top left;
+    }
+
+    // Perna direita
+    @include body-part('right-leg', 20px, 100px, #ffe0bd, 110px, 250px);
+    .right-leg {
+        transform: rotate(10deg);
+        transform-origin: top right;
+    }
+
+    // Vestido
+    .dress {
+        position: absolute;
+        width: 100px;
+        height: 150px;
+        background: #ff6f61;
+        left: 50px;
+        top: 130px;
+        border-radius: 50% 50% 0 0;
+        z-index: -1;
+    }
+}
+
+@keyframes dance {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(10deg); }
+    50% { transform: translateX(-50%) rotate(0deg); }
+    75% { transform: translateX(-50%) rotate(-10deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
